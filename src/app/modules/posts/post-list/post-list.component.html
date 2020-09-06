@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Post List/Update/Delete</h3>
+            <div class="card m-3" *ngFor="let post of posts ;let postIndex=index">
+                <div class="card-body">
+                    <h4 class="card-title"> Post Title : {{ post.title | uppercase | slice: 0: 20}}</h4>
+                    <small> <strong>User Name: </strong> {{ post.name }}</small><br>
+                    <small> <strong>User Email: </strong> {{ post.email }}</small><br>
+                    <small> <strong>User Website: </strong> {{ post.website }}</small>
+                    <p> <strong>Post Body:</strong> {{ post.body | slice: 0: 20}}</p>
+                    <h3>Comments:</h3>
+                    <ul *ngFor="let comment of post.comments;let id=index">
+                        <li>{{id+1}} : {{comment.body | slice: 0: 20}}</li>
+                    </ul>
+                    <div><button type="button" class="btn btn-primary" (click)="updatePost(post,false, postIndex)">Update</button> <button type="button" class="btn btn-danger" (click)="delete(post)">Delete</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <h3>Post Create/Update</h3>
+            <div class="card m-3">
+                <div class="card-body">
+                    <form [formGroup]="postForm">
+                        <div class="form-group form-inline text-left">
+                            <label class="mr-4">Title: </label>
+                            <input class="form-control col-10" formControlName="title" />
+                        </div>
+                        <div class="form-group">
+                            <label>Body: </label>
+                            <textarea class="form-control" formControlName="body"></textarea>
+                        </div>
+                        <button class="btn btn-block btn-primary" (click)="submitPost()">{{ isUpdateCreate ? 'Create Post' : 'Update Post'}} </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
