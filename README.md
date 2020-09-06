@@ -1,9 +1,9 @@
-# post-demo
-first of all we need to "npm install" on your cli.
-ng s for start to this application.
+# post-demo 
+first need to clone this project. need to "npm install" on your cli.
+and then "ng s" put for start to this application.
 
 ## Applcation works
-you need to first put URL localhost:4200 on your browser. login page will be there. add any admin user creadintial,
+you need to first put URL localhost:4200 on your browser. login page will be there. add any admin user credentials,
 You will see the page with three tab users, dashboard and posts
 get all the data from jsonplaceholder fake api.
 
